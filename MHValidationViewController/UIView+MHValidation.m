@@ -230,17 +230,9 @@ NSString * const CUSTOMIZATION_IDENTIFIER = @"CUSTOMIZATION_IDENTIFIER";
 
 - (CGRect)determineFrameForObject:(id)obj {
     
-    UIView *view = (UIView*)obj;
-    
-    while (![[view superview] isEqual:self]) {
-        view = [view superview];
-    }
-    
-    CGRect frame = [view convertRect:[view frame] toView:self];
-    
+    CGRect frame = [obj convertRect:[obj frame] toView:self];
     return frame;
 }
-
 
 -(void)searchForObjectsOfClass:(NSArray*)classes
         selectNextOrPrevObject:(MHSelectionType)selectionType
